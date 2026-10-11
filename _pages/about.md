@@ -1,34 +1,113 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
-
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
-
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
-announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+nav: true
+nav_order: 1
+subtitle: PhD Student in Computer Science · University of Maryland, Baltimore County
+selected_papers: false
+social: false
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+<!-- When a professional photo is available, save it as assets/img/ehs-noo.jpg and add profile.image: ehs-noo.jpg to this page's front matter. -->
+
+<nav class="flex flex-wrap gap-x-4 gap-y-2" aria-label="Professional and contact links">
+  <a href="mailto:ehs@noo.com">Email</a>
+  <a href="https://github.com/ehsnoo">GitHub</a>
+  {% if site.data.profile.linkedin %}
+  <a href="{{ site.data.profile.linkedin | escape }}">LinkedIn</a>
+  {% else %}<span>LinkedIn (profile forthcoming)</span>{% endif %}
+  {% if site.data.profile.google_scholar %}
+  <a href="{{ site.data.profile.google_scholar | escape }}">Google Scholar</a>
+  {% else %}<span>Google Scholar (profile forthcoming)</span>{% endif %}
+  {% if site.data.profile.orcid %}
+  <a href="{{ site.data.profile.orcid | escape }}">ORCID</a>
+  {% else %}<span>ORCID (profile forthcoming)</span>{% endif %}
+  {% if site.data.profile.cv_pdf %}
+  <a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
+  {% else %}<span>CV (PDF forthcoming)</span>{% endif %}
+</nav>
+
+## Selected Publications
+
+<p><a href="{{ '/publications/' | relative_url }}" aria-label="More publications">More →</a></p>
+
+{% assign selected_publications = site.data.publications | where: "selected", true %}
+{% if selected_publications.size > 0 %}
+{% for publication in selected_publications %}
+{% assign youtube_id = publication.youtube_id %}
+{% if youtube_id == nil and publication.video_url %}
+{% if publication.video_url contains 'youtu.be/' %}
+    {% assign youtube_id = publication.video_url | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first %}
+{% elsif publication.video_url contains 'v=' %}
+    {% assign youtube_id = publication.video_url | split: 'v=' | last | split: '&' | first %}
+{% elsif publication.video_url contains '/embed/' or publication.video_url contains '/shorts/' or publication.video_url contains '/live/' %}
+    {% assign youtube_id = publication.video_url | split: '/' | last | split: '?' | first %}
+{% endif %}
+{% endif %}
+{% assign youtube_link = publication.video_url %}
+{% unless youtube_link %}{% assign youtube_link = 'https://www.youtube.com/watch?v=' | append: youtube_id %}{% endunless %}
+<article class="my-5 flex flex-col gap-5 border-b pb-5 md:flex-row">
+  {% if youtube_id %}
+  <a class="block w-full shrink-0 md:w-56" href="{{ youtube_link | escape }}" aria-label="Watch the video for {{ publication.title | escape }}">
+    <img
+      class="aspect-video w-full object-cover"
+      src="https://img.youtube.com/vi/{{ youtube_id | escape }}/0.jpg"
+      alt="Video thumbnail for {{ publication.title | escape }}"
+      loading="lazy"
+    >
+    <span aria-hidden="true">▶ Watch video</span>
+  </a>
+  {% elsif publication.thumbnail %}
+  <img
+    class="aspect-video w-full shrink-0 object-cover md:w-56"
+    src="{{ publication.thumbnail | relative_url }}"
+    alt="{{ publication.thumbnail_alt | default: publication.title | escape }}"
+    loading="lazy"
+  >
+  {% endif %}
+  <div>
+    <h3>{{ publication.title | escape }}</h3>
+    {% if publication.authors %}<p>{{ publication.authors | join: ", " | escape }}</p>{% endif %}
+    {% if publication.venue or publication.year %}
+    <p>
+      {{ publication.venue | escape }}{% if publication.venue and publication.year %}, {% endif %}{{ publication.year | escape }}
+    </p>
+    {% endif %}
+    {% if publication.description %}<p>{{ publication.description | escape }}</p>{% endif %}
+    <p class="flex flex-wrap gap-x-3">
+      {% if publication.paper_url %}<a href="{{ publication.paper_url | escape }}">Paper</a>{% endif %}
+      {% if publication.video_url %}<a href="{{ publication.video_url | escape }}">Video</a>{% endif %}
+      {% if publication.code_url %}<a href="{{ publication.code_url | escape }}">Code</a>{% endif %}
+      {% if publication.bibtex_url %}<a href="{{ publication.bibtex_url | escape }}">BibTeX</a>{% endif %}
+    </p>
+  </div>
+</article>
+{% endfor %}
+{% else %}
+<p>Research in progress. Publications and project results will be shared here as they become available.</p>
+{% endif %}
+
+## Selected Teaching
+
+<p><a href="{{ '/teaching/' | relative_url }}" aria-label="More teaching information">More →</a></p>
+
+{% assign selected_teaching = site.data.teaching | where: "selected", true %}
+{% if selected_teaching.size > 0 %}
+{% for course in selected_teaching %}
+<article class="my-4 border-b pb-4">
+  <h3>{{ course.title | escape }}</h3>
+  <p>
+    {{ course.role | escape }}{% if course.institution %}, {{ course.institution | escape }}{% endif %}{% if course.semester %} · {{ course.semester | escape }}{% endif %}
+  </p>
+  {% if course.description %}<p>{{ course.description | escape }}</p>{% endif %}
+  {% if course.url %}<p><a href="{{ course.url | escape }}">Course website</a></p>{% endif %}
+</article>
+{% endfor %}
+{% else %}
+<p>Teaching information will be added as it becomes available.</p>
+{% endif %}
