@@ -3,31 +3,22 @@
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr);
   grid-template-areas:
-    "intro photo"
-    "position photo"
-    "biography contacts"
-    "biography teaching";
+    "intro sidebar"
+    "position sidebar"
+    "biography sidebar";
   align-items: start;
   column-gap: 2rem;
-  row-gap: 0.75rem;
-  margin-block: 1.5rem 3rem;
+  row-gap: 0.45rem;
+  margin-block: 1.5rem 2rem;
 }
 
 .academic-sidebar {
-  display: contents;
-}
-
-.academic-biography,
-.publication-details {
+  grid-area: sidebar;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  row-gap: 0.7rem;
   min-width: 0;
-}
-
-.academic-photo {
-  grid-area: photo;
-  width: 100%;
-  max-width: 19rem;
-  justify-self: center;
-  margin: 0;
 }
 
 .academic-intro {
@@ -36,21 +27,29 @@
 
 .academic-intro h1 {
   margin-top: 0;
-}
-
-.academic-biography {
-  grid-area: biography;
+  margin-bottom: 0.25rem;
 }
 
 .academic-position {
   grid-area: position;
   margin: 0;
-  text-align: center;
+  text-align: left;
+}
+
+.academic-biography {
+  grid-area: biography;
+  min-width: 0;
+}
+
+.academic-photo {
+  width: 100%;
+  max-width: 18rem;
+  margin: 0;
 }
 
 .profile-photo {
   display: block;
-  width: min(100%, 16rem);
+  width: min(100%, 17rem);
   aspect-ratio: 1;
   margin-inline: auto;
   border-radius: 50%;
@@ -58,32 +57,37 @@
 }
 
 .contact-links {
-  grid-area: contacts;
-  display: grid;
-  grid-template-columns: repeat(3, max-content);
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 100%;
-  justify-self: center;
-  column-gap: 0.55rem;
-  row-gap: 0.3rem;
-  margin-top: 0.15rem;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.65rem;
+  white-space: nowrap;
 }
 
 .teaching-sidebar {
-  grid-area: teaching;
   min-width: 0;
-  margin-top: 0.3rem;
+  width: 100%;
+  margin-top: 0.15rem;
 }
 
 .teaching-sidebar h2 {
-  margin-block: 0.4rem;
-  font-size: 1.2rem;
+  margin-block: 0 0.35rem;
+  font-size: 1.1rem;
 }
 
 .teaching-course,
 .teaching-disclaimer {
-  margin-block: 0.35rem;
-  font-size: 0.92rem;
+  margin-block: 0.25rem;
+  font-size: 0.88rem;
 }
 
 .teaching-disclaimer {
@@ -99,6 +103,10 @@
   padding-bottom: 1.5rem;
   border-bottom: 1px solid currentColor;
   border-color: rgba(128, 128, 128, 0.35);
+}
+
+.publication-details {
+  min-width: 0;
 }
 
 .publication-thumbnail {
@@ -135,31 +143,40 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "intro"
-      "photo"
+      "sidebar"
       "position"
-      "biography"
-      "contacts"
-      "teaching";
-    gap: 1rem;
+      "biography";
+    row-gap: 0.75rem;
   }
 
-  .profile-photo {
-    width: min(62vw, 12rem);
-  }
-
-  .contact-links {
-    max-width: 100%;
-    column-gap: 0.45rem;
-    row-gap: 0.3rem;
-    margin-top: 0;
+  .academic-sidebar {
+    display: contents;
   }
 
   .academic-photo {
+    grid-row: 2;
+    justify-self: center;
     max-width: none;
   }
 
+  .contact-links {
+    grid-row: 5;
+  }
+
   .teaching-sidebar {
-    margin-top: 0;
+    grid-row: 6;
+  }
+
+  .academic-position {
+    grid-row: 3;
+  }
+
+  .academic-biography {
+    grid-row: 4;
+  }
+
+  .profile-photo {
+    width: min(62vw, 13rem);
   }
 
   .publication-entry {
