@@ -7,6 +7,8 @@ nav: true
 nav_order: 4
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
+
 ## A Few Things About Me
 
 <ul class="space-y-5">

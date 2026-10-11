@@ -3,7 +3,7 @@ layout: academic
 title: Home
 nav_title: Home
 permalink: /
-nav: true
+nav: false
 nav_order: 1
 subtitle: PhD Student in Computer Science · University of Maryland, Baltimore County
 selected_papers: false
@@ -13,6 +13,7 @@ profile:
 home_teaching: true
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
 <div class="academic-biography" markdown="1">
 
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
