@@ -1,6 +1,6 @@
 ---
 layout: page
-title: false
+title: Home
 nav_title: Home
 permalink: /
 nav: true
