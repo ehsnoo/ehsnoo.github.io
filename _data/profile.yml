@@ -1,5 +1,5 @@
 # Add confirmed profile URLs or a CV PDF path when they are available.
-linkedin:
-google_scholar:
-orcid:
-cv_pdf:
+linkedin: https://www.linkedin.com/
+google_scholar: https://scholar.google.com/
+orcid: https://orcid.org/
+cv_pdf: assets/pdf/CV.pdf

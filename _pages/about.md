@@ -13,24 +13,31 @@ I am a PhD student in Computer Science at the University of Maryland, Baltimore 
 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
-<!-- When a professional photo is available, save it as assets/img/ehs-noo.jpg and add profile.image: ehs-noo.jpg to this page's front matter. -->
+profile:
+  image: ehs-noo.jpg
+
 
 <nav class="flex flex-wrap gap-x-4 gap-y-2" aria-label="Professional and contact links">
-  <a href="mailto:ehs@noo.com">Email</a>
-  <a href="https://github.com/ehsnoo">GitHub</a>
+  <a href="mailto:{{ site.data.profile.email }}">Email</a>
+  <a href="{{ site.data.profile.github }}">GitHub</a>
+
   {% if site.data.profile.linkedin %}
-  <a href="{{ site.data.profile.linkedin | escape }}">LinkedIn</a>
-  {% else %}<span>LinkedIn (profile forthcoming)</span>{% endif %}
+  <a href="{{ site.data.profile.linkedin }}">LinkedIn</a>
+  {% endif %}
+
   {% if site.data.profile.google_scholar %}
-  <a href="{{ site.data.profile.google_scholar | escape }}">Google Scholar</a>
-  {% else %}<span>Google Scholar (profile forthcoming)</span>{% endif %}
+  <a href="{{ site.data.profile.google_scholar }}">Google Scholar</a>
+  {% endif %}
+
   {% if site.data.profile.orcid %}
-  <a href="{{ site.data.profile.orcid | escape }}">ORCID</a>
-  {% else %}<span>ORCID (profile forthcoming)</span>{% endif %}
+  <a href="{{ site.data.profile.orcid }}">ORCID</a>
+  {% endif %}
+
   {% if site.data.profile.cv_pdf %}
   <a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
-  {% else %}<span>CV (PDF forthcoming)</span>{% endif %}
+  {% endif %}
 </nav>
+
 
 ## Selected Publications
 
