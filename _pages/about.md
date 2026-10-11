@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: page
 title: Home
+nav_title: Home
 permalink: /
 nav: false
 nav_order: 1
