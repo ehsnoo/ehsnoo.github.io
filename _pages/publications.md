@@ -7,8 +7,6 @@ nav: true
 nav_order: 3
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
-
 {% if site.data.publications.size > 0 %}
 {% assign publications = site.data.publications | sort: "year" | reverse %}
 {% for publication in publications %}
