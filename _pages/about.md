@@ -2,42 +2,39 @@
 layout: about
 title: About
 permalink: /
-nav: true
+nav: false
 nav_order: 1
 subtitle: PhD Student in Computer Science · University of Maryland, Baltimore County
 selected_papers: false
 social: false
+profile:
+  image: ehs-noo.jpg
 ---
 
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
-profile:
-  image: ehs-noo.jpg
+<nav style="display: flex; flex-wrap: wrap; column-gap: 1rem; row-gap: 0.5rem" aria-label="Professional and contact links">
+  <a href="mailto:{{ site.data.socials.email | escape }}">Email</a>
+  <a href="https://github.com/{{ site.data.socials.github_username | escape }}">GitHub</a>
 
+{% if site.data.profile.linkedin %}
+<a href="{{ site.data.profile.linkedin }}">LinkedIn</a>
+{% endif %}
 
-<nav class="flex flex-wrap gap-x-4 gap-y-2" aria-label="Professional and contact links">
-  <a href="mailto:{{ site.data.profile.email }}">Email</a>
-  <a href="{{ site.data.profile.github }}">GitHub</a>
+{% if site.data.profile.google_scholar %}
+<a href="{{ site.data.profile.google_scholar }}">Google Scholar</a>
+{% endif %}
 
-  {% if site.data.profile.linkedin %}
-  <a href="{{ site.data.profile.linkedin }}">LinkedIn</a>
-  {% endif %}
+{% if site.data.profile.orcid %}
+<a href="{{ site.data.profile.orcid }}">ORCID</a>
+{% endif %}
 
-  {% if site.data.profile.google_scholar %}
-  <a href="{{ site.data.profile.google_scholar }}">Google Scholar</a>
-  {% endif %}
-
-  {% if site.data.profile.orcid %}
-  <a href="{{ site.data.profile.orcid }}">ORCID</a>
-  {% endif %}
-
-  {% if site.data.profile.cv_pdf %}
-  <a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
-  {% endif %}
+{% if site.data.profile.cv_pdf %}
+<a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
+{% endif %}
 </nav>
-
 
 ## Selected Publications
 
