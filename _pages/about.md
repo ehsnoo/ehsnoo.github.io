@@ -3,7 +3,7 @@ layout: page
 title: Home
 nav_title: Home
 permalink: /
-nav: true
+nav: false
 nav_order: 1
 subtitle: PhD Student in Computer Science · University of Maryland, Baltimore County
 selected_papers: false
@@ -15,13 +15,13 @@ profile:
 <link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
 
 <div class="academic-profile">
+<header class="academic-intro">
+  <h1>{{ site.first_name | escape }} {{ site.last_name | escape }}</h1>
+</header>
 <figure class="academic-photo">
   <img class="profile-photo" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}">
 </figure>
-<header class="academic-intro">
-  <h1>{{ site.first_name | escape }} {{ site.last_name | escape }}</h1>
-  <p class="academic-position">{{ page.subtitle | escape }}</p>
-</header>
+<p class="academic-position">{{ page.subtitle | escape }}</p>
 <div class="academic-biography" markdown="1">
 
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
@@ -29,6 +29,7 @@ I am a PhD student in Computer Science at the University of Maryland, Baltimore 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
 </div>
+<aside class="academic-sidebar" aria-label="Profile sidebar">
 <nav class="contact-links" aria-label="Professional and contact links">
   <a href="mailto:{{ site.data.socials.email | escape }}">Email</a>
   <a href="https://github.com/{{ site.data.socials.github_username | escape }}">GitHub</a>
@@ -46,44 +47,30 @@ My broader research interests include computer vision, machine learning, and the
 {% endif %}
 
 {% if site.data.profile.cv_pdf %}
-<a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
+<a href="{{ site.data.profile.cv_pdf | relative_url }}">CV</a>
 {% endif %}
 </nav>
+{% assign selected_teaching = site.data.teaching | where: "selected", true %}
+<section class="teaching-sidebar" aria-labelledby="teaching-heading">
+  <h2 id="teaching-heading">Teaching</h2>
+  {% if selected_teaching.size > 0 %}
+  {% for course in selected_teaching %}
+  <p class="teaching-course">{{ course.title | escape }}{% if course.semester %} [{{ course.semester | escape }}]{% endif %}</p>
+  {% endfor %}
+  {% else %}
+  <p class="teaching-course">Teaching information will be added as it becomes available.</p>
+  {% endif %}
+  {% if site.data.teaching_examples.size > 0 %}
+  <p class="teaching-disclaimer">Fictional demonstrations:</p>
+  {% for course in site.data.teaching_examples %}
+  <p class="teaching-course"><span>{{ course.title | escape }}</span> [{{ course.semester | escape }}]</p>
+  {% endfor %}
+  {% endif %}
+</section>
+</aside>
 </div>
 
-## Teaching
-
-{% assign selected_teaching = site.data.teaching | where: "selected", true %}
-{% if selected_teaching.size > 0 %}
-{% for course in selected_teaching %}
-<article class="teaching-entry">
-  <h3>{{ course.title | escape }}</h3>
-  <p>
-    {{ course.role | escape }}{% if course.institution %}, {{ course.institution | escape }}{% endif %}{% if course.semester %} · {{ course.semester | escape }}{% endif %}
-  </p>
-  {% if course.description %}<p>{{ course.description | escape }}</p>{% endif %}
-  {% if course.url %}<p><a href="{{ course.url | escape }}">Course website</a></p>{% endif %}
-</article>
-{% endfor %}
-{% else %}
-<p>Teaching information will be added as it becomes available.</p>
-{% endif %}
-
-{% if site.data.teaching_examples.size > 0 %}
-## Teaching Examples — Demonstration Only
-
-{% for course in site.data.teaching_examples %}
-<article class="teaching-entry">
-  <p><strong>Sample — Not an actual teaching appointment</strong></p>
-  <h3>{{ course.title | escape }}</h3>
-  <p>{{ course.role | escape }}, {{ course.institution | escape }} · {{ course.semester | escape }}</p>
-</article>
-{% endfor %}
-{% endif %}
-
 ## Selected Publications
-
-<p><a href="{{ '/publications/' | relative_url }}" aria-label="View all publications">All publications</a></p>
 
 {% assign selected_publications = site.data.publications | where: "selected", true %}
 {% if selected_publications.size > 0 %}
@@ -144,3 +131,5 @@ My broader research interests include computer vision, machine learning, and the
 </article>
 {% endfor %}
 {% endif %}
+
+<p class="all-publications"><a href="{{ '/publications/' | relative_url }}" aria-label="View all publications">All Publications →</a></p>
