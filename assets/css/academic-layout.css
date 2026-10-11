@@ -1,82 +1,89 @@
-/* Page content layout for the academic profile and publication list. */
-.academic-profile {
+/* Shared academic profile shell used by the four primary pages. */
+.academic-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr);
-  grid-template-areas:
-    "intro sidebar"
-    "position sidebar"
-    "biography sidebar";
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
   align-items: start;
-  column-gap: 2rem;
-  row-gap: 0.45rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
   margin-block: 1.5rem 2rem;
 }
 
 .academic-sidebar {
-  grid-area: sidebar;
+  position: sticky;
+  top: 5.5rem;
   display: grid;
-  align-content: start;
   justify-items: center;
-  row-gap: 0.7rem;
+  align-content: start;
+  gap: 0.75rem;
   min-width: 0;
+  max-height: calc(100vh - 6.5rem);
+  overflow-y: auto;
+  padding: 0.25rem;
+  text-align: center;
 }
 
-.academic-intro {
-  grid-area: intro;
-}
-
-.academic-intro h1 {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-}
-
-.academic-position {
-  grid-area: position;
+.academic-name {
+  width: 100%;
   margin: 0;
-  text-align: left;
-}
-
-.academic-biography {
-  grid-area: biography;
-  min-width: 0;
+  font-size: 1.65rem;
+  line-height: 1.2;
 }
 
 .academic-photo {
   width: 100%;
-  max-width: 18rem;
+  max-width: 15rem;
   margin: 0;
 }
 
 .profile-photo {
   display: block;
-  width: min(100%, 17rem);
+  width: min(100%, 15rem);
   aspect-ratio: 1;
   margin-inline: auto;
   border-radius: 50%;
   object-fit: cover;
 }
 
+.academic-position {
+  margin: 0;
+  line-height: 1.45;
+}
+
 .contact-links {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100%;
   gap: 0.3rem;
+  max-width: 100%;
   margin: 0;
 }
 
 .contact-row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 0.65rem;
-  white-space: nowrap;
+  gap: 0.2rem 0.55rem;
+  max-width: 100%;
+}
+
+.academic-content {
+  min-width: 0;
+  max-width: 58rem;
+}
+
+.academic-biography {
+  max-width: 48rem;
+  line-height: 1.7;
+}
+
+.academic-biography p {
+  margin-block: 0 1rem;
 }
 
 .teaching-sidebar {
   min-width: 0;
   width: 100%;
   margin-top: 0.15rem;
+  text-align: left;
 }
 
 .teaching-sidebar h2 {
@@ -101,8 +108,7 @@
   gap: 1.25rem;
   margin-block: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid currentColor;
-  border-color: rgba(128, 128, 128, 0.35);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
 }
 
 .publication-details {
@@ -138,45 +144,61 @@
   margin-top: 1.5rem;
 }
 
-@media (max-width: 40rem) {
-  .academic-profile {
+@media (max-width: 48rem) {
+  .academic-shell {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "intro"
-      "sidebar"
-      "position"
-      "biography";
-    row-gap: 0.75rem;
+    gap: 1rem;
   }
 
   .academic-sidebar {
     display: contents;
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .academic-content {
+    display: contents;
+  }
+
+  .academic-name {
+    order: 1;
   }
 
   .academic-photo {
-    grid-row: 2;
-    justify-self: center;
-    max-width: none;
-  }
-
-  .contact-links {
-    grid-row: 5;
-  }
-
-  .teaching-sidebar {
-    grid-row: 6;
+    order: 2;
   }
 
   .academic-position {
-    grid-row: 3;
+    order: 3;
   }
 
   .academic-biography {
-    grid-row: 4;
+    order: 4;
+  }
+
+  .contact-links {
+    order: 5;
+  }
+
+  .teaching-sidebar {
+    order: 6;
+  }
+
+  .academic-content > * {
+    order: 7;
+  }
+
+  .academic-photo {
+    max-width: none;
   }
 
   .profile-photo {
     width: min(62vw, 13rem);
+  }
+
+  .academic-content {
+    width: 100%;
   }
 
   .publication-entry {

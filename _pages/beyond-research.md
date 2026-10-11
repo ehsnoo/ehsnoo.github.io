@@ -1,11 +1,13 @@
 ---
-layout: page
+layout: academic
 permalink: /beyond-research/
 title: Beyond Research
 description: A few things about Ehs Noo.
 nav: true
 nav_order: 4
 ---
+
+<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
 
 ## A Few Things About Me
 

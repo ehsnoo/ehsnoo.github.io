@@ -1,11 +1,13 @@
 ---
-layout: page
+layout: academic
 permalink: /research/
 title: Research
 description: Research interests and projects of Ehs Noo.
 nav: true
 nav_order: 2
 ---
+
+<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
 
 My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations. My broader interests include computer vision, machine learning, and the intersection of graphics and vision.
 
