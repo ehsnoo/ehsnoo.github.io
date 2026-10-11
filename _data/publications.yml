@@ -1,0 +1,6 @@
+# Add one mapping per real publication. Set selected: true to show it on the homepage.
+# Supported fields: title, authors (a list), venue, year, description, thumbnail,
+# thumbnail_alt, youtube_id or video_url (YouTube), paper_url, video_url,
+# code_url, bibtex_url, selected. Video URLs may use watch, youtu.be, embed,
+# Shorts, or live formats.
+[]
