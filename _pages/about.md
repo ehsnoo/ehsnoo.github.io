@@ -10,7 +10,7 @@ selected_papers: false
 social: false
 profile:
   image: ehs-noo.jpg
-home_teaching: true
+home_teaching: false
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
