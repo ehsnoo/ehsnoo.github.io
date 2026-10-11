@@ -1,0 +1,20 @@
+The implementation is complete, but validation is incomplete.
+
+Please finish the local validation of the customized academic website.
+
+1. Inspect the project's Gemfile, package.json, and existing build scripts.
+2. Check whether Ruby, Bundler, Node.js, and npm are installed.
+3. Install the required project dependencies using the repository's supported versions and commands, if possible.
+4. Run a complete Jekyll production build using the personal-site baseurl (`""`).
+5. Run the available lint and formatting checks.
+6. Verify that all five navigation pages and homepage sections render correctly.
+7. Check generated CSS, JavaScript, image paths, internal links, and publication/teaching placeholders.
+8. Check whether the website can be previewed locally.
+9. If browser automation is available, test desktop and mobile layouts, navigation, and accessibility basics.
+10. Report any errors and fix implementation issues you discover.
+
+Preserve the existing deployment workflow and working URL configuration.
+
+Do not push changes, create commits, or modify GitHub repository settings.
+
+At the end, tell me whether the website is ready to publish, what tests passed, and which checks remain unverified.
