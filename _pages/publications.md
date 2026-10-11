@@ -7,6 +7,8 @@ nav: true
 nav_order: 3
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
+
 {% if site.data.publications.size > 0 %}
 {% assign publications = site.data.publications | sort: "year" | reverse %}
 {% for publication in publications %}
@@ -22,11 +24,11 @@ nav_order: 3
 {% endif %}
 {% assign youtube_link = publication.video_url %}
 {% unless youtube_link %}{% assign youtube_link = 'https://www.youtube.com/watch?v=' | append: youtube_id %}{% endunless %}
-<article class="my-6 flex flex-col gap-5 border-b pb-6 md:flex-row">
+<article class="publication-entry">
   {% if youtube_id %}
-  <a class="block w-full shrink-0 md:w-56" href="{{ youtube_link | escape }}" aria-label="Watch the video for {{ publication.title | escape }}">
+  <a class="publication-thumbnail" href="{{ youtube_link | escape }}" aria-label="Watch the video for {{ publication.title | escape }}">
     <img
-      class="aspect-video w-full object-cover"
+      class="publication-image"
       src="https://img.youtube.com/vi/{{ youtube_id | escape }}/0.jpg"
       alt="Video thumbnail for {{ publication.title | escape }}"
       loading="lazy"
@@ -35,13 +37,13 @@ nav_order: 3
   </a>
   {% elsif publication.thumbnail %}
   <img
-    class="aspect-video w-full shrink-0 object-cover md:w-56"
+    class="publication-image publication-thumbnail"
     src="{{ publication.thumbnail | relative_url }}"
     alt="{{ publication.thumbnail_alt | default: publication.title | escape }}"
     loading="lazy"
   >
   {% endif %}
-  <div>
+  <div class="publication-details">
     <h2>{{ publication.title | escape }}</h2>
     {% if publication.authors %}<p>{{ publication.authors | join: ", " | escape }}</p>{% endif %}
     {% if publication.venue or publication.year %}
@@ -50,7 +52,7 @@ nav_order: 3
     </p>
     {% endif %}
     {% if publication.description %}<p>{{ publication.description | escape }}</p>{% endif %}
-    <p class="flex flex-wrap gap-x-3">
+    <p class="publication-links">
       {% if publication.paper_url %}<a href="{{ publication.paper_url | escape }}">Paper</a>{% endif %}
       {% if publication.video_url %}<a href="{{ publication.video_url | escape }}">Video</a>{% endif %}
       {% if publication.code_url %}<a href="{{ publication.code_url | escape }}">Code</a>{% endif %}
@@ -67,20 +69,20 @@ nav_order: 3
 ## Layout Examples — Demonstration Only
 
 {% for publication in site.data.publication_examples %}
-<article class="my-6 flex flex-col gap-5 border-b pb-6 md:flex-row">
+<article class="publication-entry">
   {% if publication.thumbnail %}
-  <img class="aspect-video w-full shrink-0 object-cover md:w-56" src="{{ publication.thumbnail | relative_url }}" alt="{{ publication.thumbnail_alt | escape }}" loading="lazy">
+  <img class="publication-image publication-thumbnail" src="{{ publication.thumbnail | relative_url }}" alt="{{ publication.thumbnail_alt | escape }}" loading="lazy">
   {% endif %}
-  <div>
+  <div class="publication-details">
     <p><strong>Sample — Not a real publication</strong></p>
     <h2>{{ publication.title | escape }}</h2>
     <p>{{ publication.authors | join: ", " | escape }}</p>
     <p>{{ publication.venue | escape }}, {{ publication.year | escape }}</p>
     <p>{{ publication.description | escape }}</p>
-    <p class="flex flex-wrap gap-x-3" aria-label="Illustrative, nonfunctional publication controls">
-      <span class="rounded border px-2 py-1">Paper</span>
-      <span class="rounded border px-2 py-1">Video</span>
-      <span class="rounded border px-2 py-1">Code</span>
+    <p class="publication-links" aria-label="Illustrative, nonfunctional publication controls">
+      <span>Paper</span>
+      <span>Video</span>
+      <span>Code</span>
     </p>
   </div>
 </article>

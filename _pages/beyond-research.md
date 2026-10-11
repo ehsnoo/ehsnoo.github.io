@@ -4,7 +4,7 @@ permalink: /beyond-research/
 title: Beyond Research
 description: A few things about Ehs Noo.
 nav: true
-nav_order: 5
+nav_order: 4
 ---
 
 ## A Few Things About Me
