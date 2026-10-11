@@ -1,0 +1,99 @@
+/* Page content layout for the About and Publications pages. */
+.academic-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr);
+  align-items: start;
+  gap: 2rem;
+  margin-block: 1.5rem 3rem;
+}
+
+.academic-biography,
+.academic-profile-card,
+.publication-details {
+  min-width: 0;
+}
+
+.academic-profile-card {
+  width: 100%;
+  max-width: 18rem;
+  justify-self: center;
+  text-align: center;
+}
+
+.profile-photo {
+  display: block;
+  width: min(100%, 14rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  gap: 0.75rem 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.publication-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+  margin-block: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  border-color: rgba(128, 128, 128, 0.35);
+}
+
+.publication-thumbnail {
+  display: block;
+  width: 100%;
+  max-width: 14rem;
+  min-width: 0;
+}
+
+.publication-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.publication-details > :first-child {
+  margin-top: 0;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.teaching-entry {
+  margin-block: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid currentColor;
+  border-color: rgba(128, 128, 128, 0.35);
+}
+
+@media (max-width: 40rem) {
+  .academic-profile {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .academic-profile-card {
+    justify-self: start;
+  }
+
+  .publication-entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .publication-thumbnail {
+    max-width: 100%;
+  }
+}
