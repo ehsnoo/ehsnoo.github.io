@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: academic
 permalink: /publications/
 title: Publications
 description: Publications by Ehs Noo.

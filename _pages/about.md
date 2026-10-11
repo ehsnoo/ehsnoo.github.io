@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: academic
 title: Home
 nav_title: Home
 permalink: /
@@ -10,67 +10,16 @@ selected_papers: false
 social: false
 profile:
   image: ehs-noo.jpg
+home_teaching: true
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
-
-<div class="academic-profile">
-<header class="academic-intro">
-  <h1>{{ site.first_name | escape }} {{ site.last_name | escape }}</h1>
-</header>
-<p class="academic-position">{{ page.subtitle | escape }}</p>
 <div class="academic-biography" markdown="1">
 
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
-</div>
-<aside class="academic-sidebar" aria-label="Profile sidebar">
-<figure class="academic-photo">
-  <img class="profile-photo" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}">
-</figure>
-<nav class="contact-links" aria-label="Professional and contact links">
-  <div class="contact-row">
-    <a href="mailto:{{ site.data.socials.email | escape }}">Email</a>
-    <a href="https://github.com/{{ site.data.socials.github_username | escape }}">GitHub</a>
-
-{% if site.data.profile.linkedin %}
-<a href="{{ site.data.profile.linkedin }}">LinkedIn</a>
-{% endif %}
-  </div>
-  <div class="contact-row">
-
-{% if site.data.profile.google_scholar %}
-<a href="{{ site.data.profile.google_scholar }}">Google Scholar</a>
-{% endif %}
-
-{% if site.data.profile.orcid %}
-<a href="{{ site.data.profile.orcid }}">ORCID</a>
-{% endif %}
-
-{% if site.data.profile.cv_pdf %}
-<a href="{{ site.data.profile.cv_pdf | relative_url }}">CV</a>
-{% endif %}
-  </div>
-</nav>
-{% assign selected_teaching = site.data.teaching | where: "selected", true %}
-<section class="teaching-sidebar" aria-labelledby="teaching-heading">
-  <h2 id="teaching-heading">Teaching</h2>
-  {% if site.data.teaching_examples.size > 0 %}
-  <p class="teaching-disclaimer">Fictional demonstration entries</p>
-  {% for course in site.data.teaching_examples %}
-  <p class="teaching-course"><span>{{ course.title | escape }}</span> [{{ course.semester | escape }}]</p>
-  {% endfor %}
-  {% elsif selected_teaching.size > 0 %}
-  {% for course in selected_teaching %}
-  <p class="teaching-course">{{ course.title | escape }}{% if course.semester %} [{{ course.semester | escape }}]{% endif %}</p>
-  {% endfor %}
-  {% else %}
-  <p class="teaching-course">Teaching information will be added as it becomes available.</p>
-  {% endif %}
-</section>
-</aside>
 </div>
 
 ## Selected Publications
