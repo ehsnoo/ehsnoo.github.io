@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About
+title: false
+nav_title: Home
 permalink: /
 nav: true
 nav_order: 1
@@ -14,6 +15,13 @@ profile:
 <link rel="stylesheet" href="{{ '/assets/css/academic-layout.css' | relative_url }}">
 
 <div class="academic-profile">
+<figure class="academic-photo">
+  <img class="profile-photo" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}">
+</figure>
+<header class="academic-intro">
+  <h1>{{ site.first_name | escape }} {{ site.last_name | escape }}</h1>
+  <p class="academic-position">{{ page.subtitle | escape }}</p>
+</header>
 <div class="academic-biography" markdown="1">
 
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
@@ -21,8 +29,6 @@ I am a PhD student in Computer Science at the University of Maryland, Baltimore 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
 </div>
-<aside class="academic-profile-card" aria-label="Profile and professional contact links">
-  <img class="profile-photo" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}">
 <nav class="contact-links" aria-label="Professional and contact links">
   <a href="mailto:{{ site.data.socials.email | escape }}">Email</a>
   <a href="https://github.com/{{ site.data.socials.github_username | escape }}">GitHub</a>
@@ -43,7 +49,6 @@ My broader research interests include computer vision, machine learning, and the
 <a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
 {% endif %}
 </nav>
-</aside>
 </div>
 
 ## Teaching
