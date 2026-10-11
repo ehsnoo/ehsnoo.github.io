@@ -62,3 +62,27 @@ nav_order: 3
 {% else %}
 <p>Research in progress. Publications and project results will be shared here as they become available.</p>
 {% endif %}
+
+{% if site.data.publication_examples.size > 0 %}
+## Layout Examples — Demonstration Only
+
+{% for publication in site.data.publication_examples %}
+<article class="my-6 flex flex-col gap-5 border-b pb-6 md:flex-row">
+  {% if publication.thumbnail %}
+  <img class="aspect-video w-full shrink-0 object-cover md:w-56" src="{{ publication.thumbnail | relative_url }}" alt="{{ publication.thumbnail_alt | escape }}" loading="lazy">
+  {% endif %}
+  <div>
+    <p><strong>Sample — Not a real publication</strong></p>
+    <h2>{{ publication.title | escape }}</h2>
+    <p>{{ publication.authors | join: ", " | escape }}</p>
+    <p>{{ publication.venue | escape }}, {{ publication.year | escape }}</p>
+    <p>{{ publication.description | escape }}</p>
+    <p class="flex flex-wrap gap-x-3" aria-label="Illustrative, nonfunctional publication controls">
+      <span class="rounded border px-2 py-1">Paper</span>
+      <span class="rounded border px-2 py-1">Video</span>
+      <span class="rounded border px-2 py-1">Code</span>
+    </p>
+  </div>
+</article>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,15 @@
+# Fictional layout demonstrations, kept separate from real publications.
+- title: “A Gentle Introduction to Particle Based Fluid Animation”
+  authors: [“A. Example”, “B. Researcher”]
+  venue: Illustrative Graphics Symposium
+  year: 2025
+  description: A fictional example showing a publication title, author list, venue, thumbnail, and resource controls.
+  thumbnail: assets/img/sample-fluid-flow.svg
+  thumbnail_alt: Illustrative blue particle paths flowing through a grid
+- title: “Learning Motion from Imaginary Worlds”
+  authors: [“C. Sample”, “D. Fiction”]
+  venue: Demonstration Conference on Visual Computing
+  year: 2024
+  description: A second fictional example showing the same layout with a distinct thumbnail and resource controls.
+  thumbnail: assets/img/sample-motion-field.svg
+  thumbnail_alt: Illustrative colorful motion field with abstract arrows

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative fluid flow</title>
+  <desc id="desc">Blue and teal particle paths curl across a dark background.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#10233c" />
+      <stop offset="1" stop-color="#174d62" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)" />
+  <g fill="none" stroke-linecap="round" stroke-width="5">
+    <path d="M-20 270 C110 80 180 340 310 155 S500 50 670 165" stroke="#75e0db" />
+    <path d="M-25 315 C100 125 210 350 330 205 S520 115 670 225" stroke="#75b9ed" opacity=".8" />
+    <path d="M-20 210 C120 30 215 270 340 115 S530 25 665 125" stroke="#b2f4e7" opacity=".7" />
+  </g>
+  <g fill="#e6fbff">
+    <circle cx="100" cy="153" r="5" /><circle cx="210" cy="230" r="5" /><circle cx="365" cy="115" r="5" /><circle cx="515" cy="95" r="5" />
+  </g>
+</svg>

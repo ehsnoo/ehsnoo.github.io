@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative motion field</title>
+  <desc id="desc">Abstract curved arrows in violet, coral, and gold.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#211b43" />
+      <stop offset="1" stop-color="#59405d" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)" />
+  <g fill="none" stroke-linecap="round" stroke-width="7">
+    <path d="M60 275 C150 40 245 330 335 120 S485 55 580 190" stroke="#e8a1e8" />
+    <path d="M35 170 C150 330 225 35 350 220 S490 305 610 105" stroke="#ffb38a" />
+    <path d="M90 70 C220 210 260 65 390 155 S500 245 560 285" stroke="#f2d47e" opacity=".85" />
+  </g>
+  <g fill="#fff0d0"><path d="m573 178 20 15-23 7z" /><path d="m597 96 18 9-19 10z" /><path d="m552 275 20 5-17 14z" /></g>
+</svg>

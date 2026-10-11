@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: page
 title: About
 permalink: /
 nav: false
@@ -11,11 +11,17 @@ profile:
   image: ehs-noo.jpg
 ---
 
+<div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
+<div markdown="1">
+
 I am a PhD student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research focuses on computer graphics, particularly physics-based animation and fluid simulation. I am interested in developing computational methods for simulating complex physical phenomena and creating realistic, visually compelling animations.
 
 My broader research interests include computer vision, machine learning, and the intersection of graphics and vision.
 
-<nav style="display: flex; flex-wrap: wrap; column-gap: 1rem; row-gap: 0.5rem" aria-label="Professional and contact links">
+</div>
+<aside class="mx-auto w-full max-w-sm md:mx-0" aria-label="Profile and professional contact links">
+  <img class="mx-auto aspect-square w-48 rounded-full object-cover md:w-56" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}">
+<nav class="mt-5 grid grid-cols-3 justify-items-center gap-x-3 gap-y-3 text-center" aria-label="Professional and contact links">
   <a href="mailto:{{ site.data.socials.email | escape }}">Email</a>
   <a href="https://github.com/{{ site.data.socials.github_username | escape }}">GitHub</a>
 
@@ -35,6 +41,8 @@ My broader research interests include computer vision, machine learning, and the
 <a href="{{ site.data.profile.cv_pdf | relative_url }}">CV (PDF)</a>
 {% endif %}
 </nav>
+</aside>
+</div>
 
 ## Selected Publications
 
@@ -96,6 +104,30 @@ My broader research interests include computer vision, machine learning, and the
 <p>Research in progress. Publications and project results will be shared here as they become available.</p>
 {% endif %}
 
+{% if site.data.publication_examples.size > 0 %}
+## Layout Examples — Demonstration Only
+
+{% for publication in site.data.publication_examples %}
+<article class="my-5 flex flex-col gap-5 border-b pb-5 md:flex-row">
+  {% if publication.thumbnail %}
+  <img class="aspect-video w-full shrink-0 object-cover md:w-56" src="{{ publication.thumbnail | relative_url }}" alt="{{ publication.thumbnail_alt | escape }}" loading="lazy">
+  {% endif %}
+  <div>
+    <p><strong>Sample — Not a real publication</strong></p>
+    <h3>{{ publication.title | escape }}</h3>
+    <p>{{ publication.authors | join: ", " | escape }}</p>
+    <p>{{ publication.venue | escape }}, {{ publication.year | escape }}</p>
+    <p>{{ publication.description | escape }}</p>
+    <p class="flex flex-wrap gap-x-3" aria-label="Illustrative, nonfunctional publication controls">
+      <span class="rounded border px-2 py-1">Paper</span>
+      <span class="rounded border px-2 py-1">Video</span>
+      <span class="rounded border px-2 py-1">Code</span>
+    </p>
+  </div>
+</article>
+{% endfor %}
+{% endif %}
+
 ## Selected Teaching
 
 <p><a href="{{ '/teaching/' | relative_url }}" aria-label="More teaching information">More →</a></p>
@@ -114,4 +146,16 @@ My broader research interests include computer vision, machine learning, and the
 {% endfor %}
 {% else %}
 <p>Teaching information will be added as it becomes available.</p>
+{% endif %}
+
+{% if site.data.teaching_examples.size > 0 %}
+## Teaching Examples — Demonstration Only
+
+{% for course in site.data.teaching_examples %}
+<article class="my-4 border-b pb-4">
+  <p><strong>Sample — Not an actual teaching appointment</strong></p>
+  <h3>{{ course.title | escape }}</h3>
+  <p>{{ course.role | escape }}, {{ course.institution | escape }} · {{ course.semester | escape }}</p>
+</article>
+{% endfor %}
 {% endif %}
